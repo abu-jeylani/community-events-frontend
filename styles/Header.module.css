@@ -15,7 +15,7 @@
   }
   
   .header a:hover {
-    color: #000;
+    color: gray;
   }
   .header ul {
     display: flex;
@@ -28,10 +28,11 @@
     color: red;
     font-size: 20px;
     text-transform: uppercase;
+    font-weight: bold;
   }
   
   .logo a {
-    color: red;
+    color: black;
   }
   
   @media (max-width: 768px) {
