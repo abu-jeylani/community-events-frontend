@@ -12,7 +12,10 @@ export default function Header() {
       <nav>
         <ul>
           <li>
-            <Link href="/events">Events</Link>
+            <Link href="/events">All Events</Link>
+          </li>
+          <li>
+            <Link href="/events/add">Add Event</Link>
           </li>
         </ul>
       </nav>
