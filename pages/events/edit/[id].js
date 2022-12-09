@@ -33,10 +33,6 @@ export default function EditEventPage({ evt, token }) {
     imageUrl = null;
   }
 
-  useEffect(() => {
-    console.log("image url", evt);
-  }, []);
-
   const [imagePreview, setImagePreview] = useState(imageUrl ? imageUrl : null);
 
   const [showModal, setShowModal] = useState(false);
@@ -65,7 +61,6 @@ export default function EditEventPage({ evt, token }) {
         toast.error("Something went wrong");
       } else {
         const evt = await res.json();
-        console.log("evt", evt);
         router.push(`/events/${evt.data.attributes.slug}`);
       }
     }
@@ -208,8 +203,6 @@ export async function getServerSideProps({ params: { id }, req }) {
   const res = await fetch(`${API_URL}/api/events/${id}?populate=*`);
   const evt = await res.json();
   const token = parseCookies(req);
-
-  console.log(token);
 
   return {
     props: {

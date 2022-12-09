@@ -33,7 +33,6 @@ export default function AddEventPage({ token }) {
     const hasEmptyFields = Object.values(values).some(
       (element) => element === ""
     );
-    console.log(user);
     if (hasEmptyFields) {
       toast.error("Please fill in all fields");
     } else {
@@ -50,7 +49,6 @@ export default function AddEventPage({ token }) {
         toast.error("Something went wrong");
       } else {
         const evt = await res.json();
-        console.log("evt", evt);
         router.push(`/events/add/image-upload/${evt.data.id}`);
       }
     }
@@ -150,7 +148,6 @@ export default function AddEventPage({ token }) {
 
 export async function getServerSideProps({ req }) {
   const token = parseCookies(req).token;
-  console.log("token", token);
   return {
     props: {
       token,

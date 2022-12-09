@@ -39,12 +39,17 @@
     .header {
       flex-direction: column;
       height: auto;
+      width: 100%;
     }
   
     .header ul {
       margin: 20px 0;
       flex-direction: column;
       text-align: center;
+    }
+
+    .header li {
+      margin: 10px;
     }
   
     .header a {

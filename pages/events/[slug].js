@@ -28,25 +28,24 @@ export default function EventPage({ evt }) {
           {evt.attributes.time}
         </span>
         <h1>{evt.attributes.name}</h1>
-        {imageUrl === null ? (
+        {/* {imageUrl === null ? (
           <h1>no image</h1>
         ) : (
-          <div className={styles.image}>
-            <Image
-              src={imageUrl}
-              width={960}
-              height={600}
-              alt={evt.attributes.name}
-            />
-          </div>
-        )}
+          // <div className={styles.image}>
+          //   <Image
+          //     src={imageUrl}
+          //     width={300}
+          //     height={200}
+          //     alt={evt.attributes.name}
+          //   />
+          // </div>
+        )} */}
         <h3>Host:</h3>
         <p>{evt.attributes.host}</p>
         <h3>Description:</h3>
         <p>{evt.attributes.description}</p>
         <h3>Venue: {evt.attributes.venue}</h3>
         <p>{evt.attributes.address}</p>
-        <h1>{evt.attributes.user.data.id}</h1>
         <Link
           href="#"
           onClick={() => {
@@ -70,8 +69,6 @@ export async function getStaticPaths() {
   let events = await res.json();
   events = events.data;
 
-  console.log("slugs", events);
-
   const paths = events.map((evt) => ({
     params: { slug: evt.attributes.slug },
   }));
@@ -82,7 +79,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  console.log("slug is", context);
   const {
     params: { slug },
   } = context;
@@ -90,7 +86,6 @@ export async function getStaticProps(context) {
     `${API_URL}/api/events?filters[slug][$eq]=${slug}&populate=*`
   );
   const event = await res.json();
-  console.log("event data: ", event.data[0]);
   return {
     props: {
       evt: event.data[0],

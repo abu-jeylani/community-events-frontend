@@ -41,16 +41,13 @@ export const AuthProvider = ({ children }) => {
     });
 
     const data = await res.json();
-    console.log("data", data);
 
     if (res.ok) {
-      console.log("res is okay");
       setUser(data.user);
       router.push("/account/dashboard");
     } else {
       setError(data.message);
     }
-    console.log("user", user);
   };
 
   //Logout User
