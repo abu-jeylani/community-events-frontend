@@ -28,7 +28,6 @@ export async function getStaticProps() {
     `${API_URL}/api/events?_sort=date:ASC&pagination[limit]=2&populate=*`
   );
   const events = await res.json();
-  console.log(events);
   return {
     props: { events: events.data },
     revalidate: 1,

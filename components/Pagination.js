@@ -6,7 +6,6 @@ import styles from "@/styles/Pagination.module.css";
 
 export default function Pagination({ page, total }) {
   const lastPage = Math.ceil(total / PER_PAGE);
-  console.log("last page", lastPage);
   return (
     <div className={styles.paginationButtons}>
       {page > 1 && (

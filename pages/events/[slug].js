@@ -12,54 +12,49 @@ import "react-toastify/dist/ReactToastify.css";
 export default function EventPage({ evt }) {
   const router = useRouter();
 
-  const deleteEvent = async (e) => {
-    console.log("delete");
-    if (confirm("Are you sure?")) {
-      const res = await fetch(`${API_URL}/api/events/${evt.id}`, {
-        method: "DELETE",
-      });
+  let imageUrl;
 
-      const data = await res.json();
+  try {
+    imageUrl = evt.attributes.image.data.attributes.formats.medium.url;
+  } catch (error) {
+    imageUrl = null;
+  }
 
-      if (!res.ok) {
-        toast.error(data.message);
-      } else {
-        router.push("/events");
-      }
-    }
-  };
   return (
     <Layout>
       <div className={styles.event}>
-        <div className={styles.controls}>
-          <Link href={`/events/edit/${evt.id}`}>
-            <FaPencilAlt /> Edit Event
-          </Link>
-          <Link href="#" className={styles.delete} onClick={deleteEvent}>
-            <FaTimes /> Delete Event
-          </Link>
-        </div>
         <span>
           {new Date(evt.attributes.date).toLocaleDateString("en-US")} at{" "}
           {evt.attributes.time}
         </span>
         <h1>{evt.attributes.name}</h1>
-        {evt.attributes.image && (
+        {imageUrl === null ? (
+          <h1>no image</h1>
+        ) : (
           <div className={styles.image}>
-            {/* <Image
-              src={evt.attributes.image.data.attributes.formats.medium.url}
+            <Image
+              src={imageUrl}
               width={960}
               height={600}
-            /> */}
+              alt={evt.attributes.name}
+            />
           </div>
         )}
         <h3>Host:</h3>
-        <p>{evt.attributes.hosts}</p>
+        <p>{evt.attributes.host}</p>
         <h3>Description:</h3>
         <p>{evt.attributes.description}</p>
         <h3>Venue: {evt.attributes.venue}</h3>
         <p>{evt.attributes.address}</p>
-        <Link href="/events">{"<"}Go Back</Link>
+        <h1>{evt.attributes.user.data.id}</h1>
+        <Link
+          href="#"
+          onClick={() => {
+            router.back();
+          }}
+        >
+          {"<"}Go Back
+        </Link>
       </div>
     </Layout>
   );

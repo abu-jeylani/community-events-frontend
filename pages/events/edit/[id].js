@@ -8,12 +8,13 @@ import Modal from "@/components/Modal";
 import ImageUpload from "@/components/ImageUpload";
 import moment from "moment";
 import { FaImage } from "react-icons/fa";
+import { parseCookies } from "@/helpers/index";
 
 import { API_URL } from "@/config/index";
 import styles from "@/styles/Form.module.css";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function EditEventPage({ evt }) {
+export default function EditEventPage({ evt, token }) {
   const [values, setValues] = useState({
     name: evt.data.attributes.name,
     description: evt.data.attributes.description,
@@ -24,15 +25,19 @@ export default function EditEventPage({ evt }) {
     time: evt.data.attributes.time,
   });
 
+  let imageUrl;
+
+  try {
+    imageUrl = evt.attributes.image.data.attributes.formats.medium.url;
+  } catch (error) {
+    imageUrl = null;
+  }
+
   useEffect(() => {
     console.log("image url", evt);
   }, []);
 
-  const [imagePreview, setImagePreview] = useState(
-    evt.data.attributes.image
-      ? evt.data.attributes.image.data.attributes.formats.thumbnail.url
-      : null
-  );
+  const [imagePreview, setImagePreview] = useState(imageUrl ? imageUrl : null);
 
   const [showModal, setShowModal] = useState(false);
 
@@ -71,21 +76,25 @@ export default function EditEventPage({ evt }) {
   };
 
   const imageUploaded = async (e) => {
-    console.log(evt.data.id);
     const res = await fetch(`${API_URL}/api/events/${evt.data.id}?populate=*`);
     const data = await res.json();
-    console.log("after image upload", data);
-    setImagePreview(
-      data.data.attributes.image.data.attributes.formats.thumbnail.url
-    );
-    console.log(imagePreview);
-    // setShowModal(false);
+    const imageUrl =
+      data.data.attributes.image.data.attributes.formats.thumbnail.url;
+    setImagePreview(imageUrl);
+    setShowModal(false);
   };
 
   return (
     <Layout title="Add New Event">
-      <Link href="/events">Go Back</Link>
-      <h1>Add Event</h1>
+      <Link
+        href="#"
+        onClick={() => {
+          router.back();
+        }}
+      >
+        Go Back
+      </Link>
+      <h1>Edit Event</h1>
       <ToastContainer
         position="top-center"
         theme="colored"
@@ -164,11 +173,11 @@ export default function EditEventPage({ evt }) {
             onChange={handleInputChange}
           ></textarea>
         </div>
-        <input type="submit" value="Add Event" className="btn" />
+        <input type="submit" value="Update Event" className="btn" />
       </form>
       <h2>Event Image</h2>
       {imagePreview ? (
-        <Image src={imagePreview} height={100} width={170} />
+        <Image src={imagePreview} alt="picture" height={100} width={170} />
       ) : (
         <div>
           <p>No image uploaded</p>
@@ -185,19 +194,27 @@ export default function EditEventPage({ evt }) {
       </div>
 
       <Modal show={showModal} onClose={() => setShowModal(false)}>
-        <ImageUpload evtId={evt.data.id} imageUploaded={imageUploaded} />
+        <ImageUpload
+          evtId={evt.data.id}
+          imageUploaded={imageUploaded}
+          token={token}
+        />
       </Modal>
     </Layout>
   );
 }
 
-export async function getServerSideProps({ params: { id } }) {
+export async function getServerSideProps({ params: { id }, req }) {
   const res = await fetch(`${API_URL}/api/events/${id}?populate=*`);
   const evt = await res.json();
+  const token = parseCookies(req);
+
+  console.log(token);
 
   return {
     props: {
       evt: evt,
+      token: token.token,
     },
   };
 }

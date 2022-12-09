@@ -3,18 +3,21 @@ import Image from "next/image";
 import styles from "@/styles/EventItem.module.css";
 
 export default function EventItem({ evt }) {
+  let imageUrl;
+
+  try {
+    imageUrl = evt.attributes.image.data.attributes.formats.medium.url;
+  } catch (error) {
+    imageUrl = null;
+  }
   return (
     <div className={styles.event}>
       <div className={styles.img}>
         <Image
-          src={
-            evt.attributes.image
-              ? evt.attributes.image.data.attributes.formats.thumbnail.url
-              : "/images/event-default.png"
-          }
+          src={imageUrl ? imageUrl : "/images/event-default.png"}
           width={170}
           height={100}
-          alt={evt.name}
+          alt={evt.attributes.name}
         />
       </div>
 

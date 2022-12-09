@@ -1,12 +1,17 @@
+import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
+import AuthContext from "@/context/AuthContext";
 import Link from "next/link";
 import Search from "./Search";
 import styles from "@/styles/Header.module.css";
+import { useContext } from "react";
 
 export default function Header() {
+  const { user, logout } = useContext(AuthContext);
+
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <Link href="/">Community Events</Link>
+        <Link href="/">Events.IO</Link>
       </div>
       <Search />
       <nav>
@@ -14,9 +19,29 @@ export default function Header() {
           <li>
             <Link href="/events">All Events</Link>
           </li>
-          <li>
-            <Link href="/events/add">Add Event</Link>
-          </li>
+          {user ? (
+            <>
+              <li>
+                <Link href="/events/add">Add Event</Link>
+              </li>
+              <li>
+                <Link href="/account/dashboard">Dashboard</Link>
+              </li>
+              <li>
+                <button onClick={() => logout()} className="btn-secondary">
+                  Sign Out
+                </button>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link href="/account/login" className="btn-secondary btn-icon">
+                  Login
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
     </header>

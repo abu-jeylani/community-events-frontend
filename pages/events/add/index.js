@@ -3,12 +3,16 @@ import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import AuthContext from "@/context/AuthContext";
+import { useContext } from "react";
+import { parseCookies } from "@/helpers/index";
 
 import { API_URL } from "@/config/index";
 import styles from "@/styles/Form.module.css";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function AddEventPage() {
+export default function AddEventPage({ token }) {
+  const { user } = useContext(AuthContext);
   const [values, setValues] = useState({
     name: "",
     description: "",
@@ -17,16 +21,19 @@ export default function AddEventPage() {
     host: "",
     date: "",
     time: "",
+    user: "",
   });
   const router = useRouter();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    values.user = user;
 
     //validation
     const hasEmptyFields = Object.values(values).some(
       (element) => element === ""
     );
-
+    console.log(user);
     if (hasEmptyFields) {
       toast.error("Please fill in all fields");
     } else {
@@ -34,6 +41,7 @@ export default function AddEventPage() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({ data: values }),
       });
@@ -43,7 +51,7 @@ export default function AddEventPage() {
       } else {
         const evt = await res.json();
         console.log("evt", evt);
-        router.push(`/events/${evt.data.attributes.slug}`);
+        router.push(`/events/add/image-upload/${evt.data.id}`);
       }
     }
   };
@@ -51,6 +59,7 @@ export default function AddEventPage() {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
   };
+
   return (
     <Layout title="Add New Event">
       <Link href="/events">Go Back</Link>
@@ -137,4 +146,14 @@ export default function AddEventPage() {
       </form>
     </Layout>
   );
+}
+
+export async function getServerSideProps({ req }) {
+  const token = parseCookies(req).token;
+  console.log("token", token);
+  return {
+    props: {
+      token,
+    },
+  };
 }

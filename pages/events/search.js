@@ -22,7 +22,7 @@ export default function SearchPage({ events }) {
 
 export async function getServerSideProps({ query: { term } }) {
   const res = await fetch(
-    `${API_URL}/api/events?filters[$or][0][slug][$contains]=${term}&filters[$or][1][name][$contains]={term}& filters[$or][2][host][$contains]={term}&filters[$or][3][description][$contains]={term}&populate=*`
+    `${API_URL}/api/events?filters[$or][0][slug][$contains]=${term}&filters[$or][1][name][$contains]=${term}& filters[$or][2][host][$contains]=${term}&filters[$or][3][description][$contains]=${term}&populate=*`
   );
   const events = await res.json();
   console.log("events: ", events);
