@@ -6,22 +6,26 @@ import Link from "next/link";
 import Layout from "@/components/Layout";
 import AuthContext from "@/context/AuthContext";
 import styles from "@/styles/AuthForm.module.css";
+import { useRouter } from "next/router";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
   const { login, error } = useContext(AuthContext);
 
-  useEffect(() => {
-    if (error) {
-      toast.error(error);
-    }
-  }, [error]);
+  // useEffect(() => {
+  //   error && toast.error("bad username/password");
+  // });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    login({ email, password });
+    const res = await login({ email, password });
+    console.log(res);
+    if (res === "error") {
+      toast.error("Invalid username/password");
+    }
   };
 
   return (
@@ -30,7 +34,7 @@ export default function LoginPage() {
         <h1>
           <FaUser /> Log In
         </h1>
-        <ToastContainer />
+        <ToastContainer position="top-center" theme="dark" />
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email">Email Address</label>

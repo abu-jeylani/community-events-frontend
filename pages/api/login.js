@@ -2,6 +2,7 @@ import cookie from "cookie";
 import { API_URL } from "@/config/index";
 
 export default async (req, res) => {
+  console.log("got req");
   if (req.method === "POST") {
     const { identifier, password } = req.body;
 
