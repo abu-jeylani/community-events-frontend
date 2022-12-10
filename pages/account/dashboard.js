@@ -16,10 +16,12 @@ export default function DashboardPage({ events, token }) {
   const router = useRouter();
   const deleteEvent = async (id) => {
     if (confirm("Are you sure?")) {
+      console.log(`${id}`);
+      console.log("token", token);
       const res = await fetch(`${API_URL}/api/events/${id}`, {
         method: "DELETE",
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token.token}`,
         },
       });
 
@@ -37,6 +39,9 @@ export default function DashboardPage({ events, token }) {
   if (user == null) {
     userEvents = [];
   } else {
+    events.forEach((e) => {
+      console.log(e);
+    });
     userEvents = events.filter(
       (e) => user.email === e.attributes.user.data.attributes.email
     );
@@ -61,7 +66,7 @@ export async function getServerSideProps({ req }) {
   const data = await eventRes.json();
   const userEvents = data.data;
   const token = parseCookies(req);
-
+  console.log(userEvents);
   return {
     props: {
       events: userEvents,

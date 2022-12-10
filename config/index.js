@@ -2,4 +2,4 @@ export const API_URL = process.env.NEXT_PUBLIC_URL;
 
 export const NEXT_URL = process.env.NEXT_PUBLIC_FRONTEND_URL;
 
-export const PER_PAGE = 5;
+export const PER_PAGE = 3;

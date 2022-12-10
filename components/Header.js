@@ -8,11 +8,21 @@ import { useContext } from "react";
 export default function Header() {
   const { user, logout } = useContext(AuthContext);
 
+  const navMenuClick = () => {
+    let x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
         <Link href="/">Events.IO</Link>
       </div>
+
       <Search />
       <nav>
         <ul>
