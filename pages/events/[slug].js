@@ -64,53 +64,54 @@ export default function EventPage({ evt }) {
  * option with static rendering
  */
 
-export async function getStaticPaths() {
-  const res = await fetch(`${API_URL}/api/events`);
-  let events = await res.json();
-  events = events.data;
+// export async function getStaticPaths() {
+//   const res = await fetch(`${API_URL}/api/events`);
+//   let events = await res.json();
+//   events = events.data;
 
-  const paths = events.map((evt) => ({
-    params: { slug: evt.attributes.slug },
-  }));
-  return {
-    paths,
-    fallback: false,
-  };
-}
+//   const paths = events.map((evt) => ({
+//     params: { slug: evt.attributes.slug },
+//   }));
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// }
 
-export async function getStaticProps(context) {
-  const {
-    params: { slug },
-  } = context;
-  const res = await fetch(
-    `${API_URL}/api/events?filters[slug][$eq]=${slug}&populate=*`
-  );
-  const event = await res.json();
-  return {
-    props: {
-      evt: event.data[0],
-      revalidate: 1,
-    },
-  };
-}
+// export async function getStaticProps(context) {
+//   const {
+//     params: { slug },
+//   } = context;
+//   const res = await fetch(
+//     `${API_URL}/api/events?filters[slug][$eq]=${slug}&populate=*`
+//   );
+//   const event = await res.json();
+//   return {
+//     props: {
+//       evt: event.data[0],
+//       revalidate: 1,
+//     },
+//   };
+// }
 
 /**
  * option 2 with server side rendering
  */
 
-// export async function getServerSideProps(context) {
-//   console.log("slug", context);
-//   const {
-//     query: { slug },
-//   } = context;
-//   console.log("slug", slug);
-//   const eventID = slug;
-//   const res = await fetch(`${API_URL}/api/events/${eventID}`);
-//   const event = await res.json();
-//   console.log("event", event[0]);
-//   return {
-//     props: {
-//       evt: event[0],
-//     },
-//   };
-// }
+export async function getServerSideProps(context) {
+  console.log("slug", context);
+  const {
+    query: { slug },
+  } = context;
+  console.log("slug", slug);
+  const res = await fetch(
+    `${API_URL}/api/events?filters[slug][$eq]=${slug}&populate=*`
+  );
+  const event = await res.json();
+  console.log("event", event.data[0]);
+  return {
+    props: {
+      evt: event.data[0],
+    },
+  };
+}
