@@ -15,10 +15,6 @@ export default function LoginPage() {
 
   const { login, error } = useContext(AuthContext);
 
-  // useEffect(() => {
-  //   error && toast.error("bad username/password");
-  // });
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await login({ email, password });
@@ -34,7 +30,7 @@ export default function LoginPage() {
         <h1>
           <FaUser /> Log In
         </h1>
-        <ToastContainer position="top-center" theme="dark" />
+        <ToastContainer position="bottom-center" theme="colored" />
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email">Email Address</label>

@@ -34,7 +34,7 @@ export default function RegisterPage() {
         <h1>
           <FaUser /> Register
         </h1>
-        <ToastContainer position="top-center" theme="dark" />
+        <ToastContainer position="top-center" theme="colored" />
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="username">Username</label>

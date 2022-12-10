@@ -108,7 +108,7 @@ export default function EditEventPage({ evt, token }) {
             />
           </div>
           <div>
-            <label htmlFor="performers">Performers</label>
+            <label htmlFor="host">Host</label>
             <input
               type="text"
               name="host"

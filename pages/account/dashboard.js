@@ -1,9 +1,11 @@
 import { parseCookies } from "@/helpers/index";
 import { useRouter } from "next/router";
 import AuthContext from "@/context/AuthContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { API_URL } from "@/config/index";
 import DashboardEvent from "@/components/DashboardEvent";
+import { ToastContainer, toast } from "react-toastify";
+import Link from "next/link";
 
 import styles from "@/styles/Dashboard.module.css";
 
@@ -12,7 +14,6 @@ import Layout from "@/components/Layout";
 export default function DashboardPage({ events, token }) {
   const { user } = useContext(AuthContext);
   const router = useRouter();
-
   const deleteEvent = async (id) => {
     if (confirm("Are you sure?")) {
       const res = await fetch(`${API_URL}/api/events/${id}`, {
@@ -44,8 +45,9 @@ export default function DashboardPage({ events, token }) {
   return (
     <Layout title="User Dashboard">
       <div className={styles.dash}>
+        <ToastContainer />
         <h1>Dashboard</h1>
-        <h3>My Events</h3>
+        <h3 className="myevents">Update Events</h3>{" "}
         {userEvents.map((e) => (
           <DashboardEvent key={e.id} evt={e} handleDelete={deleteEvent} />
         ))}
