@@ -52,7 +52,19 @@ export default function EventPage({ evt }) {
             router.back();
           }}
         >
-          {"<"}Go Back
+          <button className="bg-black text-white text-xs rounded-lg p-2 px-2">
+            Go Back
+          </button>
+        </Link>
+        <Link
+          href="#"
+          onClick={() => {
+            router.back();
+          }}
+        >
+          <button className="bg-black ml-8 text-white text-xs rounded-lg p-2 px-4">
+            RSVP
+          </button>
         </Link>
       </div>
     </Layout>
