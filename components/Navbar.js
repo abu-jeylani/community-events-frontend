@@ -38,7 +38,7 @@ export default function Navbar() {
           </div>
           <div className={`${open ? "top-30" : "top-[-490px]"}`}></div>
           <ul
-            className={`md:flex md:items-center  text-center mt-4   md:pb-0 pb-3 absolute md:static bg-inherit md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
+            className={`md:flex md:items-center  text-center mt-4   md:pb-0 pb-3 absolute md:static bg-inherit md:z-auto z-[1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
               open ? "top-30 " : "top-[-490px]"
             }`}
           >
