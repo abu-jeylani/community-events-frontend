@@ -50,7 +50,7 @@ export default function DashboardPage({ events, token }) {
     <Layout title="User Dashboard">
       <div className={styles.dash}>
         <ToastContainer />
-        <h1 className=" font-semibold">Dashboard</h1>
+        <h1 className="text-2xl font-semibold">Dashboard</h1>
         {userEvents.map((e) => (
           <DashboardEvent key={e.id} evt={e} handleDelete={deleteEvent} />
         ))}

@@ -80,17 +80,16 @@ export default function EditEventPage({ evt, token }) {
   };
 
   return (
-    <Layout title="Add New Event">
+    <Layout title="Edit Event">
       <Link
         href="#"
         onClick={() => {
           router.back();
         }}
-        className="text-black"
       >
         Go Back
       </Link>
-      <h1>Edit Event</h1>
+      <h1 className="mt-6 text-black text-lg font-extrabold">Edit Event</h1>
       <ToastContainer
         position="top-center"
         theme="colored"
@@ -106,6 +105,7 @@ export default function EditEventPage({ evt, token }) {
               name="name"
               value={values.name}
               onChange={handleInputChange}
+              className="shadow appearance-none border border-solid  rounded-lg"
             />
           </div>
           <div>
@@ -116,6 +116,7 @@ export default function EditEventPage({ evt, token }) {
               id="host"
               value={values.host}
               onChange={handleInputChange}
+              className="shadow appearance-none border border-solid  rounded-lg"
             />
           </div>
           <div>
@@ -126,6 +127,7 @@ export default function EditEventPage({ evt, token }) {
               id="venue"
               value={values.venue}
               onChange={handleInputChange}
+              className="shadow appearance-none border border-solid  rounded-lg"
             />
           </div>
           <div>
@@ -136,6 +138,7 @@ export default function EditEventPage({ evt, token }) {
               id="address"
               value={values.address}
               onChange={handleInputChange}
+              className="shadow appearance-none border border-solid  rounded-lg"
             />
           </div>
           <div>
@@ -146,6 +149,7 @@ export default function EditEventPage({ evt, token }) {
               id="date"
               value={moment(values.date).format("yyyy-MM-DD")}
               onChange={handleInputChange}
+              className="shadow appearance-none border border-solid  rounded-lg"
             />
           </div>
           <div>
@@ -156,6 +160,7 @@ export default function EditEventPage({ evt, token }) {
               id="time"
               value={values.time}
               onChange={handleInputChange}
+              className="shadow appearance-none border border-solid  rounded-lg"
             />
           </div>
         </div>
@@ -167,6 +172,7 @@ export default function EditEventPage({ evt, token }) {
             id="description"
             value={values.description}
             onChange={handleInputChange}
+            className="shadow appearance-none border border-solid  rounded-lg"
           ></textarea>
         </div>
         <input type="submit" value="Update Event" className="btn" />

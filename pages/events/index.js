@@ -9,7 +9,7 @@ export default function EventsPage({ events, page, total }) {
   return (
     <Layout>
       <div>
-        <span className=" block  mx-35">
+        <span>
           <Search />
         </span>
       </div>

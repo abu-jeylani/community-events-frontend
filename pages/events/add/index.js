@@ -60,10 +60,8 @@ export default function AddEventPage({ token }) {
 
   return (
     <Layout title="Add New Event">
-      <Link href="/events" className="text-black">
-        Go Back
-      </Link>
-      <h1>Add Event</h1>
+      <Link href="/events">Go Back</Link>
+      <h1 className="mt-4">Add Event</h1>
       <ToastContainer
         position="top-center"
         theme="colored"
@@ -79,6 +77,7 @@ export default function AddEventPage({ token }) {
               name="name"
               value={values.name}
               onChange={handleInputChange}
+              className="shadow appearance-none border border-solid  rounded-lg"
             />
           </div>
           <div>
@@ -89,6 +88,7 @@ export default function AddEventPage({ token }) {
               id="host"
               value={values.host}
               onChange={handleInputChange}
+              className="shadow appearance-none border border-solid  rounded-lg"
             />
           </div>
           <div>
@@ -99,6 +99,7 @@ export default function AddEventPage({ token }) {
               id="venue"
               value={values.venue}
               onChange={handleInputChange}
+              className="shadow appearance-none border border-solid  rounded-lg"
             />
           </div>
           <div>
@@ -109,6 +110,7 @@ export default function AddEventPage({ token }) {
               id="address"
               value={values.address}
               onChange={handleInputChange}
+              className="shadow appearance-none border border-solid  rounded-lg"
             />
           </div>
           <div>
@@ -119,6 +121,7 @@ export default function AddEventPage({ token }) {
               id="date"
               value={values.date}
               onChange={handleInputChange}
+              className="shadow appearance-none border border-solid  rounded-lg"
             />
           </div>
           <div>
@@ -129,6 +132,7 @@ export default function AddEventPage({ token }) {
               id="time"
               value={values.time}
               onChange={handleInputChange}
+              className="shadow appearance-none border border-solid  rounded-lg"
             />
           </div>
         </div>
@@ -140,6 +144,7 @@ export default function AddEventPage({ token }) {
             id="description"
             value={values.description}
             onChange={handleInputChange}
+            className="shadow appearance-none border border-solid  rounded-lg"
           ></textarea>
         </div>
         <input type="submit" value="Add Event" className="btn" />

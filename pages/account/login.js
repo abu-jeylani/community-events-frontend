@@ -34,21 +34,25 @@ export default function LoginPage() {
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+            <div className="shadow appearance-none border border-solid  rounded-lg">
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
           </div>
           <div>
             <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <div className=" shadow appearance-none border border-solid  rounded-lg">
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
           </div>
           <input type="submit" value="Login" className="btn-secondary" />
         </form>

@@ -42,7 +42,7 @@ export default function Navbar() {
               open ? "top-30 " : "top-[-490px]"
             }`}
           >
-            <li className="md:ml-10 text-md max-md:hover:bg-gray-100 max-md:py-2">
+            <li className="md:ml-10 text-sm max-md:hover:bg-gray-100 max-md:py-2">
               <Link
                 href="/events"
                 className=" text-black font-semibold  md:hover:text-gray-400"
@@ -53,7 +53,7 @@ export default function Navbar() {
 
             {user ? (
               <>
-                <li className="md:ml-8 text-md max-md:hover:bg-gray-100 max-md:py-2">
+                <li className="md:ml-8 text-sm max-md:hover:bg-gray-100 max-md:py-2">
                   <Link
                     href="/events/add"
                     className=" text-black font-semibold  md:hover:text-gray-400"
@@ -61,7 +61,7 @@ export default function Navbar() {
                     Add Event
                   </Link>
                 </li>
-                <li className="md:ml-8 text-md max-md:hover:bg-gray-100 max-md:py-2 ">
+                <li className="md:ml-8 text-sm max-md:hover:bg-gray-100 max-md:py-2 ">
                   <Link
                     href="/account/dashboard"
                     className=" text-black font-semibold  md:hover:text-gray-400"
@@ -69,7 +69,7 @@ export default function Navbar() {
                     Dashboard
                   </Link>
                 </li>
-                <li className="md:ml-8 text-md max-md:hover:bg-gray-100 max-md:shadow-lg max-md:py-2 ">
+                <li className="md:ml-8 text-sm max-md:hover:bg-gray-100 max-md:shadow-lg max-md:py-2 ">
                   <Link
                     onClick={() => logout()}
                     className=" font-semibold  md:hover:text-gray-400  text-black "
@@ -81,12 +81,12 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <li className="md:ml-4 text-md max-md:hover:bg-gray-100 max-md:shadow-lg max-md:py-2  ">
+                <li className="md:ml-4 text-sm max-md:hover:bg-gray-100 max-md:shadow-lg max-md:py-2  ">
                   <Link
                     href="/account/login"
-                    className=" font-semibold  md:hover:text-gray-400  text-black"
+                    className="ml-5 font-semibold  md:hover:text-gray-400  text-black"
                   >
-                    Login
+                    Admin Login
                   </Link>
                 </li>
                 <span></span>

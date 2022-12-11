@@ -14,14 +14,14 @@ export default function Search({ classApplication }) {
   };
 
   return (
-    <span className={` w-100 h-100 cursor-pointer mb-3 m-auto  `}>
+    <span className={` w-100 h-100 cursor-pointer mb-3  `}>
       <form onSubmit={handleSubmit} className=" flex ">
         <input
           type="text"
           value={term}
           onChange={(e) => setTerm(e.target.value)}
           placeholder="Search Events"
-          className=" font-mono text-sm text-center px-5 border border-solid border-black rounded-md transition ease-in-out"
+          className=" font-mono text-xs text-center px-5 border border-solid border-black rounded-md transition ease-in-out"
         />
         <i>
           <BsSearch

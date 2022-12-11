@@ -1,25 +1,27 @@
 import Link from "next/link";
 import { FaPencilAlt, FaTimes } from "react-icons/fa";
-import styles from "@/styles/DashboardEvent.module.css";
 
 export default function DashboardEvent({ evt, handleDelete }) {
   return (
-    <div className={styles.event}>
-      <h4>
-        <Link href={`/events/${evt.attributes.slug}`}>
+    <div className="p-5 justify-between shadow-md text-sm flex items-center border border-solid  my-8  rounded-lg">
+      <h4 className="">
+        <Link className="text-black" href={`/events/${evt.attributes.slug}`}>
           {evt.attributes.name}
         </Link>
       </h4>
-      <Link className={styles.edit} href={`/events/edit/${evt.id}`}>
-        <FaPencilAlt /> <span>Edit Event</span>
-      </Link>
-      <Link
-        href={`#`}
-        className={styles.delete}
-        onClick={() => handleDelete(evt.id)}
-      >
-        <FaTimes /> <span>Delete</span>
-      </Link>
+      <div className=" flex">
+        {" "}
+        <Link className="text-black  " href={`/events/edit/${evt.id}`}>
+          <FaPencilAlt className="inline-block h-4 " />
+        </Link>
+        <Link
+          href={`#`}
+          className="text-red-500 mx-10"
+          onClick={() => handleDelete(evt.id)}
+        >
+          <FaTimes className="inline-block hover: scale-130" />
+        </Link>
+      </div>
     </div>
   );
 }
