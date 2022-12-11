@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Layout from "@/components/Layout";
 import { API_URL, PER_PAGE } from "@/config/index";
 import EventItem from "@/components/EventItem";
@@ -8,11 +7,7 @@ import Search from "@/components/Search";
 export default function EventsPage({ events, page, total }) {
   return (
     <Layout>
-      <div>
-        <span>
-          <Search />
-        </span>
-      </div>
+      <Search />
       {events.length === 0 && <h3>No events to show</h3>}
       {events.map((evt) => (
         <EventItem key={evt.id} evt={evt}>

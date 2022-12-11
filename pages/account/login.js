@@ -5,7 +5,6 @@ import { useEffect, useState, useContext } from "react";
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import AuthContext from "@/context/AuthContext";
-import styles from "@/styles/AuthForm.module.css";
 import { useRouter } from "next/router";
 
 export default function LoginPage() {
@@ -24,37 +23,88 @@ export default function LoginPage() {
     }
   };
 
+  // .form label {
+  //   display: block;
+  // }
+
+  // .form input {
+  //   width: 100%;
+  //   height: 40px;
+  //   padding: 5px;
+  // }
+
+  // .form textarea {
+  //   width: 100%;
+  //   height: 150px;
+  // }
+
+  // .form input[type='submit'] {
+  //   display: block;
+  //   width: 100%;
+  //   margin: 20px 0 30px;
+  // }
+
+  // .form .file {
+  //   border: 1px #ccc solid;
+  //   background-color: #f4f4f4;
+  //   padding: 10px;
+  // }
+
+  // .grid {
+  //   display: grid;
+  //   grid-template-columns: 1fr 1fr;
+  //   gap: 30px;
+  //   margin-bottom: 20px;
+  // }
+
+  // @media (max-width: 600px) {
+  //   .grid {
+  //     grid-template-columns: 1fr;
+  //   }
+
   return (
     <Layout title="User Login">
-      <div className={styles.auth}>
-        <h1>
-          <FaUser /> Log In
-        </h1>
+      <div className="shadow-sm shadow-slate-600 rounded-lg flex flex-col p-10 items-center">
+        <div className="flex my-4 ">
+          <FaUser className="mt-2 text-sm" /> Log In
+        </div>
         <ToastContainer position="bottom-center" theme="colored" />
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="email">Email Address</label>
-            <div className="shadow appearance-none border border-solid  rounded-lg">
+            <label htmlFor="email" className="text-sm ">
+              Email Address
+            </label>
+            <div className="my-2">
               <input
                 type="email"
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                className="rounded-xl px-2"
               />
             </div>
           </div>
           <div>
-            <label htmlFor="password">Password</label>
-            <div className=" shadow appearance-none border border-solid  rounded-lg">
+            <label htmlFor="password" className="text-sm">
+              Password
+            </label>
+            <div className="my-2">
               <input
                 type="password"
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                className="rounded-xl pl-2"
               />
             </div>
           </div>
-          <input type="submit" value="Login" className="btn-secondary" />
+          <div className="">
+            <input
+              type="submit"
+              value="Login"
+              className="text-sm mx-14 bg-slate-900 hover:bg-slate-800 rounded-xl px-8 py-2 mt-4 text-center"
+            />
+          </div>
         </form>
       </div>
     </Layout>

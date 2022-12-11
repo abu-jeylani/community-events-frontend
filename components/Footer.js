@@ -1,10 +1,9 @@
 import Link from "next/link";
-import styles from "@/styles/Footer.module.css";
 
 export default function Footer() {
   return (
-    <footer className={styles.footer}>
-      <p className=" text-xs">copyright &copy; events.io 2023</p>
+    <footer className="text-center pb-2">
+      <p className="text-white text-sm">Copyright &copy; events.io 2023</p>
     </footer>
   );
 }

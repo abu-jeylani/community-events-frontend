@@ -9,6 +9,7 @@ import ImageUpload from "@/components/ImageUpload";
 import moment from "moment";
 import { FaImage } from "react-icons/fa";
 import { parseCookies } from "@/helpers/index";
+import Button from "@/components/Button";
 
 import { API_URL } from "@/config/index";
 import styles from "@/styles/Form.module.css";
@@ -81,15 +82,15 @@ export default function EditEventPage({ evt, token }) {
 
   return (
     <Layout title="Edit Event">
-      <Link
-        href="#"
+      <div
         onClick={() => {
           router.back();
         }}
       >
-        Go Back
-      </Link>
-      <h1 className="mt-6 text-black text-lg font-extrabold">Edit Event</h1>
+        <Button title="Go Back" />
+      </div>
+
+      <h1 className="mt-6 text-white text-md font-extrabold">Edit Event</h1>
       <ToastContainer
         position="top-center"
         theme="colored"
