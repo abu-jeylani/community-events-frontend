@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BsCalendar2Event } from "react-icons/bs";
-import { BiMenu } from "react-icons/bi";
+import { BiMenu, BiLogIn } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 
 import Link from "next/link";
@@ -16,7 +16,9 @@ export default function Navbar() {
         <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-10  ">
           <div className=" font-bold text-2xl cursor-pointer flex items-center text-black  hover:text-gray-600">
             <span className="block  text-3xl text-black-700 mr-1 ">
-              <BsCalendar2Event />
+              <Link href="/" className="text-black">
+                <BsCalendar2Event />
+              </Link>
             </span>
             <span className=" block ml-2 mt-2">
               <Link href="/" className="text-black">
@@ -36,8 +38,8 @@ export default function Navbar() {
           </div>
           <div className={`${open ? "top-30" : "top-[-490px]"}`}></div>
           <ul
-            className={`md:flex md:items-center  text-center mt-4  md:pb-0  absolute md:static bg-white md:z-auto z-[1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
-              open ? "top-30 shadow-inner" : "top-[-490px]"
+            className={`md:flex md:items-center  text-center mt-4  md:pb-0 pb-3 absolute md:static bg-inherit md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
+              open ? "top-30 " : "top-[-490px]"
             }`}
           >
             <li className="md:ml-8 text-md max-md:hover:bg-gray-100 ">
@@ -70,29 +72,30 @@ export default function Navbar() {
                 <li className="md:ml-8 text-md max-md:hover:bg-gray-100 max-md:shadow-lg ">
                   <Link
                     onClick={() => logout()}
-                    className=" text-black font-semibold  md:hover:text-gray-400 "
+                    className=" font-semibold  md:hover:text-gray-400  bg-black text-white px-3 rounded-xl "
                     href="#"
                   >
-                    Sign Out
+                    Logout
                   </Link>
                 </li>
               </>
             ) : (
               <>
-                <li className="md:ml-4 text-md max-md:hover:bg-gray-100 max-md:shadow-lg ">
+                <li className="md:ml-4 text-md max-md:hover:bg-gray-100 max-md:shadow-lg  ">
                   <Link
                     href="/account/login"
-                    className=" text-black font-semibold  md:hover:text-gray-400"
+                    className=" font-semibold  md:hover:text-gray-400   px-3 hover:scale-150 text-black bg-black text-white px-3  rounded-xl "
                   >
                     Login
                   </Link>
                 </li>
+                <span></span>
               </>
             )}
           </ul>
         </div>
       </div>
-      <div className=" h-10 shadow-sm"></div>
+      <div className=" h-10 "></div>
     </>
   );
 }
