@@ -5,7 +5,6 @@ import { useContext, useEffect } from "react";
 import { API_URL } from "@/config/index";
 import DashboardEvent from "@/components/DashboardEvent";
 import { ToastContainer, toast } from "react-toastify";
-import Link from "next/link";
 
 import styles from "@/styles/Dashboard.module.css";
 
@@ -51,8 +50,7 @@ export default function DashboardPage({ events, token }) {
     <Layout title="User Dashboard">
       <div className={styles.dash}>
         <ToastContainer />
-        <h1>Dashboard</h1>
-        <h3 className="myevents">Update Events</h3>{" "}
+        <h1 className=" font-semibold">Dashboard</h1>
         {userEvents.map((e) => (
           <DashboardEvent key={e.id} evt={e} handleDelete={deleteEvent} />
         ))}

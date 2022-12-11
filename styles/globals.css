@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   box-sizing: border-box;
@@ -8,7 +13,7 @@
 
 html,
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Space Mono", sans-serif;
   line-height: 1.8;
 }
 
@@ -41,7 +46,7 @@ h1 {
 
 .btn-secondary {
   font: inherit;
-  font-size: 13px;
+  font-size: 10px;
   background: #000;
   color: #fff !important;
   border: 0;
@@ -71,7 +76,7 @@ h1 {
 
 .view-events-button {
   font: inherit;
-  font-size: 13px;
+  font-size: 10px;
   background: #000;
   color: #fff !important;
   border: 0;
@@ -80,27 +85,24 @@ h1 {
   margin: 0 auto;
   cursor: pointer;
 }
-
 
 .view-events-button:hover {
   opacity: 0.8;
 }
 @media (max-width: 600px) {
-.view-events-button {
-  margin: 0 auto;
-  font: inherit;
-  font-size: 13px;
-  background: #000;
-  color: #fff !important;
-  border: 0;
-  border-radius: 5px;
-  padding: 5px 15px;
-  cursor: pointer;
-  
-}
+  .view-events-button {
+    margin: 0 auto;
+    font: inherit;
+    font-size: 10px;
+    background: #000;
+    color: #fff !important;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+  }
 
-.view-events-button:hover {
-  opacity: 0.8;
-}
-
+  .view-events-button:hover {
+    opacity: 0.8;
+  }
 }

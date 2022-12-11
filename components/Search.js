@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import styles from "@/styles/Search.module.css";
+import { BsSearch } from "react-icons/bs";
 
-export default function Search() {
+export default function Search({ classApplication }) {
   const [term, setTerm] = useState("");
 
   const router = useRouter();
@@ -14,15 +14,22 @@ export default function Search() {
   };
 
   return (
-    <div className={styles.search}>
-      <form onSubmit={handleSubmit}>
+    <span className={` w-100 h-100 cursor-pointer mb-3 m-auto  `}>
+      <form onSubmit={handleSubmit} className=" flex ">
         <input
           type="text"
           value={term}
           onChange={(e) => setTerm(e.target.value)}
           placeholder="Search Events"
+          className=" font-mono text-sm text-center px-5 border border-solid border-black rounded-md transition ease-in-out"
         />
+        <i>
+          <BsSearch
+            className=" text-xl  ml-3 pt-1 hover:scale-125"
+            onClick={handleSubmit}
+          />
+        </i>
       </form>
-    </div>
+    </span>
   );
 }

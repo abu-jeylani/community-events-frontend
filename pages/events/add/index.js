@@ -60,7 +60,9 @@ export default function AddEventPage({ token }) {
 
   return (
     <Layout title="Add New Event">
-      <Link href="/events">Go Back</Link>
+      <Link href="/events" className="text-black">
+        Go Back
+      </Link>
       <h1>Add Event</h1>
       <ToastContainer
         position="top-center"

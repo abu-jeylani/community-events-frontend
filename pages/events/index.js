@@ -3,11 +3,16 @@ import Layout from "@/components/Layout";
 import { API_URL, PER_PAGE } from "@/config/index";
 import EventItem from "@/components/EventItem";
 import Pagination from "@/components/Pagination";
+import Search from "@/components/Search";
 
 export default function EventsPage({ events, page, total }) {
   return (
     <Layout>
-      <h1>All Events</h1>
+      <div>
+        <span className=" block  mx-35">
+          <Search />
+        </span>
+      </div>
       {events.length === 0 && <h3>No events to show</h3>}
       {events.map((evt) => (
         <EventItem key={evt.id} evt={evt}>

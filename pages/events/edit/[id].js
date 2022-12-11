@@ -86,6 +86,7 @@ export default function EditEventPage({ evt, token }) {
         onClick={() => {
           router.back();
         }}
+        className="text-black"
       >
         Go Back
       </Link>
