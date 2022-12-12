@@ -65,8 +65,9 @@ export default function LoginPage() {
   return (
     <Layout title="User Login">
       <div className="shadow-sm shadow-slate-600 rounded-lg flex flex-col p-10 items-center">
-        <div className="flex my-4 ">
-          <FaUser className="mt-2 text-sm" /> Log In
+        <div className="flex my-4 pr-36 ">
+          <FaUser className="mt-2 text-sm" />{" "}
+          <span className="pl-2">Log In</span>
         </div>
         <ToastContainer position="bottom-center" theme="colored" />
         <form onSubmit={handleSubmit}>
@@ -94,7 +95,7 @@ export default function LoginPage() {
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="rounded-xl pl-2"
+                className="rounded-xl pl-4"
               />
             </div>
           </div>
@@ -102,7 +103,7 @@ export default function LoginPage() {
             <input
               type="submit"
               value="Login"
-              className="text-sm mx-14 bg-slate-900 hover:bg-slate-800 rounded-xl px-8 py-2 mt-4 text-center"
+              className="text-sm mx-14 bg-slate-800 hover:bg-slate-700 rounded-xl px-8 py-2 mt-4 text-center"
             />
           </div>
         </form>

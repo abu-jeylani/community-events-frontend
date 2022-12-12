@@ -11,7 +11,7 @@ export default function EventPage({ evt }) {
 
   return (
     <Layout>
-      <div className=" text-center">
+      <div className="text-center mt-20">
         <div className=" my-3">
           {new Date(evt.attributes.date).toLocaleDateString("en-US")} at{" "}
           {evt.attributes.time}
@@ -33,22 +33,23 @@ export default function EventPage({ evt }) {
           <h3 className=" text-2xl">Address:</h3>
           <p>{evt.attributes.address}</p>
         </div>
+        <div className="flex gap-8 justify-center ">
+          <div
+            onClick={() => {
+              router.back();
+            }}
+          >
+            <Button path="#" title="Go back" />
+          </div>
 
-        <span
-          onClick={() => {
-            router.back();
-          }}
-        >
-          <Button path="#" title="Go back" />
-        </span>
-
-        <span
-          onClick={() => {
-            router.back();
-          }}
-        >
-          <Button path="#" title="RSVP" />
-        </span>
+          <div
+            onClick={() => {
+              router.back();
+            }}
+          >
+            <Button path="#" title="RSVP" />
+          </div>
+        </div>
       </div>
     </Layout>
   );

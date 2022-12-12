@@ -3,15 +3,16 @@ import Layout from "@/components/Layout";
 import Link from "next/link";
 import { API_URL } from "@/config/index";
 import EventItem from "@/components/EventItem";
+import Button from "@/components/Button";
 
 export default function SearchPage({ events }) {
   const router = useRouter();
   return (
     <Layout title="Search Results">
-      <Link href="/events" className=" text-black">
-        Go Back
-      </Link>
-      <h1> Search Results for {router.query.term} </h1>
+      <div>
+        <Button path={`/events`} title={`Go Back`} />
+      </div>
+      <h1 className="mt-4"> Search Results for {router.query.term} </h1>
       {events.length === 0 && <h3>No events to show</h3>}
       {events.map((evt) => (
         <EventItem key={evt.id} evt={evt}>
