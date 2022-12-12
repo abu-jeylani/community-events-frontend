@@ -1,16 +1,13 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import Header from "./Header";
 import Footer from "./Footer";
 import Showcase from "./Showcase";
 import Navbar from "./Navbar";
 
-import styles from "@/styles/Layout.module.css";
-
 export default function Layout({ title, keywords, description, children }) {
   const router = useRouter();
   return (
-    <div>
+    <div className="bg-gradient-to-l from-black to-gray-900 h-screen">
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -18,9 +15,11 @@ export default function Layout({ title, keywords, description, children }) {
       </Head>
       <Navbar />
       {router.pathname === "/" && <Showcase />}
-
-      <div className={styles.container}>{children}</div>
-      <Footer />
+      <div className="bg-gradient-to-l from-black to-gray-900"></div>
+      <div className="whitespace-pre-wrap bg-gradient-to-l from-black to-gray-900 mt-8">
+        <div className=" text-white  mx-auto p-8 max-w-4xl">{children}</div>
+        <Footer />
+      </div>
     </div>
   );
 }

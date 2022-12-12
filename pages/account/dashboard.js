@@ -6,8 +6,6 @@ import { API_URL } from "@/config/index";
 import DashboardEvent from "@/components/DashboardEvent";
 import { ToastContainer, toast } from "react-toastify";
 
-import styles from "@/styles/Dashboard.module.css";
-
 import Layout from "@/components/Layout";
 
 export default function DashboardPage({ events, token }) {
@@ -48,7 +46,7 @@ export default function DashboardPage({ events, token }) {
 
   return (
     <Layout title="User Dashboard">
-      <div className={styles.dash}>
+      <div className="">
         <ToastContainer />
         <h1 className="text-2xl font-semibold">Dashboard</h1>
         {userEvents.map((e) => (

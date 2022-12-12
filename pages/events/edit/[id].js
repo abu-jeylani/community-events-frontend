@@ -9,6 +9,7 @@ import ImageUpload from "@/components/ImageUpload";
 import moment from "moment";
 import { FaImage } from "react-icons/fa";
 import { parseCookies } from "@/helpers/index";
+import Button from "@/components/Button";
 
 import { API_URL } from "@/config/index";
 import styles from "@/styles/Form.module.css";
@@ -81,15 +82,15 @@ export default function EditEventPage({ evt, token }) {
 
   return (
     <Layout title="Edit Event">
-      <Link
-        href="#"
+      <div
         onClick={() => {
           router.back();
         }}
       >
-        Go Back
-      </Link>
-      <h1 className="mt-6 text-black text-lg font-extrabold">Edit Event</h1>
+        <Button title="Go Back" />
+      </div>
+
+      <h1 className="mt-6 text-white text-md font-extrabold">Edit Event</h1>
       <ToastContainer
         position="top-center"
         theme="colored"
@@ -105,7 +106,7 @@ export default function EditEventPage({ evt, token }) {
               name="name"
               value={values.name}
               onChange={handleInputChange}
-              className="shadow appearance-none border border-solid  rounded-lg"
+              className="shadow text-black appearance-none border border-solid  rounded-lg"
             />
           </div>
           <div>
@@ -116,7 +117,7 @@ export default function EditEventPage({ evt, token }) {
               id="host"
               value={values.host}
               onChange={handleInputChange}
-              className="shadow appearance-none border border-solid  rounded-lg"
+              className="shadow text-black appearance-none border border-solid  rounded-lg"
             />
           </div>
           <div>
@@ -127,7 +128,7 @@ export default function EditEventPage({ evt, token }) {
               id="venue"
               value={values.venue}
               onChange={handleInputChange}
-              className="shadow appearance-none border border-solid  rounded-lg"
+              className="shadow text-black  appearance-none border border-solid  rounded-lg"
             />
           </div>
           <div>
@@ -138,7 +139,7 @@ export default function EditEventPage({ evt, token }) {
               id="address"
               value={values.address}
               onChange={handleInputChange}
-              className="shadow appearance-none border border-solid  rounded-lg"
+              className="shadow text-black  appearance-none border border-solid  rounded-lg"
             />
           </div>
           <div>
@@ -149,7 +150,7 @@ export default function EditEventPage({ evt, token }) {
               id="date"
               value={moment(values.date).format("yyyy-MM-DD")}
               onChange={handleInputChange}
-              className="shadow appearance-none border border-solid  rounded-lg"
+              className="shadow text-black appearance-none border border-solid  rounded-lg"
             />
           </div>
           <div>
@@ -160,22 +161,26 @@ export default function EditEventPage({ evt, token }) {
               id="time"
               value={values.time}
               onChange={handleInputChange}
-              className="shadow appearance-none border border-solid  rounded-lg"
+              className="shadow text-black  appearance-none border border-solid  rounded-lg"
             />
           </div>
         </div>
         <div>
-          <label htmlFor="description">Event Description</label>
+          <label htmlFor="description ">Event Description</label>
           <textarea
             type="text"
             name="description"
             id="description"
             value={values.description}
             onChange={handleInputChange}
-            className="shadow appearance-none border border-solid  rounded-lg"
+            className="shadow text-black  appearance-none border border-solid  rounded-lg"
           ></textarea>
         </div>
-        <input type="submit" value="Update Event" className="btn" />
+        <input
+          type="submit"
+          value="Update Event"
+          className="bg-slate-800 rounded-xl"
+        />
       </form>
       <h2>Event Image</h2>
       {imagePreview ? (
@@ -189,9 +194,9 @@ export default function EditEventPage({ evt, token }) {
       <div>
         <button
           onClick={() => setShowModal(true)}
-          className="btn-secondary btn-icon"
+          className="bg-slate-800 rounded-xl px-3"
         >
-          <FaImage /> Set Image
+          <FaImage className="mt-2 mx-12" /> Set Image
         </button>
       </div>
 

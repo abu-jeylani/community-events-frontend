@@ -60,7 +60,12 @@ export default function AddEventPage({ token }) {
 
   return (
     <Layout title="Add New Event">
-      <Link href="/events">Go Back</Link>
+      <Link
+        href="/events"
+        className="text-white bg-black text-sm px-4 py-1 rounded-md hover:bg-gray-700"
+      >
+        Go Back
+      </Link>
       <h1 className="mt-4">Add Event</h1>
       <ToastContainer
         position="top-center"

@@ -1,71 +1,55 @@
-import { FaPencilAlt, FaTimes } from "react-icons/fa";
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/router";
-import { ToastContainer, toast } from "react-toastify";
 import Layout from "@/components/Layout";
 import { API_URL } from "@/config/index";
+import Button from "@/components/Button";
 
-import styles from "@/styles/Event.module.css";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function EventPage({ evt }) {
   const router = useRouter();
 
-  let imageUrl;
-
-  try {
-    imageUrl = evt.attributes.image.data.attributes.formats.medium.url;
-  } catch (error) {
-    imageUrl = null;
-  }
-
   return (
     <Layout>
-      <div className={styles.event}>
-        <span>
+      <div className="text-center mt-20">
+        <div className=" my-3">
           {new Date(evt.attributes.date).toLocaleDateString("en-US")} at{" "}
           {evt.attributes.time}
-        </span>
-        <h1>{evt.attributes.name}</h1>
-        {/* {imageUrl === null ? (
-          <h1>no image</h1>
-        ) : (
-          // <div className={styles.image}>
-          //   <Image
-          //     src={imageUrl}
-          //     width={300}
-          //     height={200}
-          //     alt={evt.attributes.name}
-          //   />
-          // </div>
-        )} */}
-        <h3>Host:</h3>
-        <p>{evt.attributes.host}</p>
-        <h3>Description:</h3>
-        <p>{evt.attributes.description}</p>
-        <h3>Venue: {evt.attributes.venue}</h3>
-        <p>{evt.attributes.address}</p>
-        <Link
-          href="#"
-          onClick={() => {
-            router.back();
-          }}
-        >
-          <button className="bg-black text-white text-xs rounded-lg p-2 px-2">
-            Go Back
-          </button>
-        </Link>
-        <Link
-          href="#"
-          onClick={() => {
-            router.back();
-          }}
-        >
-          <button className="bg-black ml-8 text-white text-xs rounded-lg p-2 px-4">
-            RSVP
-          </button>
-        </Link>
+        </div>
+        <h1 className="text-3xl">{evt.attributes.name}</h1>
+        <div className=" my-3">
+          <h3 className=" text-2xl">Host:</h3>
+          <p>{evt.attributes.host}</p>
+        </div>
+        <div className=" my-3">
+          <h3 className=" text-2xl">Description:</h3>
+          <p>{evt.attributes.description}</p>
+        </div>
+        <div className=" my-5">
+          <h3 className=" text-2xl">Venue: </h3>
+          <p>{evt.attributes.venue}</p>
+        </div>
+        <div className="my-5">
+          <h3 className=" text-2xl">Address:</h3>
+          <p>{evt.attributes.address}</p>
+        </div>
+        <div className="flex gap-8 justify-center ">
+          <div
+            onClick={() => {
+              router.back();
+            }}
+          >
+            <Button path="#" title="Go back" />
+          </div>
+
+          <div
+            onClick={() => {
+              router.back();
+            }}
+          >
+            <Button path="#" title="RSVP" />
+          </div>
+        </div>
       </div>
     </Layout>
   );

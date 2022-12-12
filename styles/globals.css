@@ -44,22 +44,6 @@ h1 {
   opacity: 0.9;
 }
 
-.btn-secondary {
-  font: inherit;
-  font-size: 10px;
-  background: #000;
-  color: #fff !important;
-  border: 0;
-  border-radius: 5px;
-  padding: 5px 15px;
-  margin: 0 auto;
-  cursor: pointer;
-}
-
-.btn-secondary:hover {
-  opacity: 0.8;
-}
-
 .btn-icon {
   display: flex;
   align-items: center;
@@ -70,39 +54,6 @@ h1 {
   margin-right: 5px;
 }
 
-.container-center {
-  text-align: center;
-}
-
-.view-events-button {
-  font: inherit;
-  font-size: 10px;
-  background: #000;
-  color: #fff !important;
-  border: 0;
-  border-radius: 5px;
-  padding: 5px 15px;
-  margin: 0 auto;
-  cursor: pointer;
-}
-
-.view-events-button:hover {
-  opacity: 0.8;
-}
-@media (max-width: 600px) {
-  .view-events-button {
-    margin: 0 auto;
-    font: inherit;
-    font-size: 10px;
-    background: #000;
-    color: #fff !important;
-    border: 0;
-    border-radius: 5px;
-    padding: 5px 15px;
-    cursor: pointer;
-  }
-
-  .view-events-button:hover {
-    opacity: 0.8;
-  }
+.will-change-transform {
+  will-change: transform;
 }
