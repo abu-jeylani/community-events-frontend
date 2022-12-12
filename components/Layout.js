@@ -25,7 +25,7 @@ export default function Layout({ title, keywords, description, children }) {
 }
 
 Layout.defaultProps = {
-  title: "Community Events | Find what&apos;s going on in your community!",
+  title: "Community Events | Find what's going on in your community!",
   description: "Find the latest events going on in the community",
   keywords: "community, events",
 };
