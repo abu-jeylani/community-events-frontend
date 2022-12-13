@@ -40,7 +40,7 @@ export default function EventItem({ evt }) {
           {evt.attributes.time}
         </span>
       </div>
-      <div className="self-center mt-8 mb-8">
+      <div className="self-center mt-8 mb-6">
         <Button path={`/events/${evt.attributes.slug}`} title="Details" />
       </div>
     </div>
