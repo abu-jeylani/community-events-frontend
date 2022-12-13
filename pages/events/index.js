@@ -7,16 +7,18 @@ import Search from "@/components/Search";
 export default function EventsPage({ events, page, total }) {
   return (
     <Layout>
-      <div className="mb-6">
+      <div className="mb-10 mt-12 md:px-8 px-20">
         <Search />
       </div>
-      {events.length === 0 && <h3>No events to show</h3>}
-      {events.map((evt) => (
-        <EventItem key={evt.id} evt={evt}>
-          {evt.name}
-        </EventItem>
-      ))}
-      <Pagination page={page} total={total} />
+      <div className="flex flex-col md:flex-row gap-6 m-6">
+        {events.length === 0 && <h3>No events to show</h3>}
+        {events.map((evt) => (
+          <EventItem key={evt.id} evt={evt}>
+            {evt.name}
+          </EventItem>
+        ))}
+        <Pagination page={page} total={total} />
+      </div>
     </Layout>
   );
 }
