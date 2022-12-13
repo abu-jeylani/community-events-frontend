@@ -19,7 +19,7 @@ export default function EventItem({ evt }) {
   return (
     <div
       onClick={navigateToEventDetails}
-      className="flex flex-col w-9/12 mx-auto max-md:place-content-between place-content-between text-xs p-3 shadow-inner shadow-gray-700 rounded-2xl mb-4 cursor-pointer hover:scale-105  transition-all ease-in-out"
+      className="flex flex-col w-11/12 mx-auto max-md:place-content-between place-content-between text-xs p-3 shadow-inner shadow-gray-700 rounded-2xl mb-4 cursor-pointer hover:scale-105  transition-all ease-in-out"
     >
       <div className="">
         <Image
@@ -40,7 +40,7 @@ export default function EventItem({ evt }) {
           {evt.attributes.time}
         </span>
       </div>
-      <div className="self-center mt-6 mb-4">
+      <div className="self-center mt-8 mb-8">
         <Button path={`/events/${evt.attributes.slug}`} title="Details" />
       </div>
     </div>

@@ -7,7 +7,7 @@ import Search from "@/components/Search";
 export default function EventsPage({ events, page, total }) {
   return (
     <Layout>
-      <div className="mb-10 mt-12 md:px-8 px-20">
+      <div className="mb-10 mt-12 ">
         <Search />
       </div>
       <div className="flex flex-col md:flex-row gap-6 m-6">

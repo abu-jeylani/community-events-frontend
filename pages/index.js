@@ -6,7 +6,7 @@ import Button from "@/components/Button";
 export default function Home({ events }) {
   return (
     <Layout>
-      <h1 className="md:text-lg text-md text-white font-extrabold px-16 md:px-6 ">
+      <h1 className="md:text-lg text-md text-white font-extrabold md:px-6 ">
         Upcoming Events
       </h1>
 
@@ -20,7 +20,7 @@ export default function Home({ events }) {
       </div>
 
       {events.length > 0 && (
-        <div className="text-center">
+        <div className="">
           <Button path="/events" title="See All" />
         </div>
       )}
