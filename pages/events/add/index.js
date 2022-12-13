@@ -62,7 +62,7 @@ export default function AddEventPage({ token }) {
     <Layout title="Add New Event">
       <Link
         href="/events"
-        className="text-white bg-black text-sm px-4 py-1 rounded-md hover:bg-gray-700"
+        className="text-white shadow-sm shadow-slate-800 text-xs bg-slate-900 hover:bg-slate-700 px-4 py-2 rounded-2xl"
       >
         Go Back
       </Link>
@@ -82,7 +82,7 @@ export default function AddEventPage({ token }) {
               name="name"
               value={values.name}
               onChange={handleInputChange}
-              className="shadow appearance-none border border-solid  rounded-lg"
+              className="shadow appearance-none border border-solid text-black rounded-lg"
             />
           </div>
           <div>
@@ -93,7 +93,7 @@ export default function AddEventPage({ token }) {
               id="host"
               value={values.host}
               onChange={handleInputChange}
-              className="shadow appearance-none border border-solid  rounded-lg"
+              className="shadow appearance-none border border-solid text-black rounded-lg"
             />
           </div>
           <div>
@@ -104,7 +104,7 @@ export default function AddEventPage({ token }) {
               id="venue"
               value={values.venue}
               onChange={handleInputChange}
-              className="shadow appearance-none border border-solid  rounded-lg"
+              className="shadow appearance-none border border-solid text-black rounded-lg"
             />
           </div>
           <div>
@@ -115,7 +115,7 @@ export default function AddEventPage({ token }) {
               id="address"
               value={values.address}
               onChange={handleInputChange}
-              className="shadow appearance-none border border-solid  rounded-lg"
+              className="shadow appearance-none border border-solid text-black rounded-lg"
             />
           </div>
           <div>
@@ -126,7 +126,7 @@ export default function AddEventPage({ token }) {
               id="date"
               value={values.date}
               onChange={handleInputChange}
-              className="shadow appearance-none border border-solid  rounded-lg"
+              className="shadow appearance-none border border-solid text-black rounded-lg"
             />
           </div>
           <div>
@@ -137,7 +137,7 @@ export default function AddEventPage({ token }) {
               id="time"
               value={values.time}
               onChange={handleInputChange}
-              className="shadow appearance-none border border-solid  rounded-lg"
+              className="shadow appearance-none border border-solid  text-black rounded-lg"
             />
           </div>
         </div>
@@ -149,10 +149,14 @@ export default function AddEventPage({ token }) {
             id="description"
             value={values.description}
             onChange={handleInputChange}
-            className="shadow appearance-none border border-solid  rounded-lg"
+            className="shadow appearance-none border border-solid text-black rounded-lg"
           ></textarea>
         </div>
-        <input type="submit" value="Add Event" className="btn" />
+        <input
+          type="submit"
+          value="Add Event"
+          className="text-white shadow-sm shadow-slate-800 text-xs bg-slate-900 hover:bg-slate-700 px-4 py-2 rounded-2xl"
+        />
       </form>
     </Layout>
   );

@@ -20,7 +20,7 @@ export default function Home({ events }) {
       </div>
 
       {events.length > 0 && (
-        <div className="">
+        <div className="flex flex-row justify-center gap-5 mt-10">
           <Button path="/events" title="See All" />
         </div>
       )}

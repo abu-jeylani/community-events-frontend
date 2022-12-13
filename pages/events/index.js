@@ -7,7 +7,7 @@ import Search from "@/components/Search";
 export default function EventsPage({ events, page, total }) {
   return (
     <Layout>
-      <div className="mb-10 mt-12 ">
+      <div className="mb-10 mt-4 ">
         <Search />
       </div>
       <div className="flex flex-col md:flex-row gap-6 m-6">
@@ -17,6 +17,8 @@ export default function EventsPage({ events, page, total }) {
             {evt.name}
           </EventItem>
         ))}
+      </div>
+      <div className="flex flex-row justify-center gap-5">
         <Pagination page={page} total={total} />
       </div>
     </Layout>
