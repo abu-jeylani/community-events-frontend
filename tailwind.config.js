@@ -29,6 +29,13 @@ module.exports = {
           "95%": { width: "10ch" },
         },
       },
+      dropShadow: {
+        "3xl": "0 35px 35px rgba(255,255,255, 0.9)",
+        "4xl": [
+          "0 35px 35px rgba(255,255,255, 0.9)",
+          "0 45px 65px rgba(255,255,255, 0.9)",
+        ],
+      },
     },
   },
   plugins: [],
