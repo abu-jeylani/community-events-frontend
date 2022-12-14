@@ -37,7 +37,11 @@ export default function ImageUpload({ evtId, imageUploaded, token }) {
         <div className={styles.file}>
           <input type="file" onChange={handleFileChange} />
         </div>
-        <input type="submit" value="Upload" className="btn" />
+        <input
+          type="submit"
+          value="Upload"
+          className="text-white shadow-sm shadow-slate-800 text-xs bg-slate-900 hover:bg-slate-700 px-4 py-2 rounded-2xl"
+        />
       </form>
     </div>
   );

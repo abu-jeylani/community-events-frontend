@@ -7,6 +7,7 @@ import DashboardEvent from "@/components/DashboardEvent";
 import { ToastContainer, toast } from "react-toastify";
 
 import Layout from "@/components/Layout";
+import Link from "next/link";
 
 export default function DashboardPage({ events, token }) {
   const { user } = useContext(AuthContext);
@@ -48,7 +49,20 @@ export default function DashboardPage({ events, token }) {
     <Layout title="User Dashboard">
       <div className="">
         <ToastContainer />
-        <h1 className="text-2xl font-semibold">Dashboard</h1>
+        <div className="flex gap-x-2">
+          {" "}
+          <h1 className="text-2xl font-semibold">Dashboard</h1>
+          <span>
+            {" "}
+            <Link
+              href="/events/add"
+              className="text-white shadow-sm shadow-slate-800 text-xs bg-slate-900 hover:bg-slate-700 px-4 py-2 rounded-2xl"
+            >
+              Add Event
+            </Link>
+          </span>
+        </div>
+
         {userEvents.map((e) => (
           <DashboardEvent key={e.id} evt={e} handleDelete={deleteEvent} />
         ))}

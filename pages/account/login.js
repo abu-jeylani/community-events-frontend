@@ -23,45 +23,6 @@ export default function LoginPage() {
     }
   };
 
-  // .form label {
-  //   display: block;
-  // }
-
-  // .form input {
-  //   width: 100%;
-  //   height: 40px;
-  //   padding: 5px;
-  // }
-
-  // .form textarea {
-  //   width: 100%;
-  //   height: 150px;
-  // }
-
-  // .form input[type='submit'] {
-  //   display: block;
-  //   width: 100%;
-  //   margin: 20px 0 30px;
-  // }
-
-  // .form .file {
-  //   border: 1px #ccc solid;
-  //   background-color: #f4f4f4;
-  //   padding: 10px;
-  // }
-
-  // .grid {
-  //   display: grid;
-  //   grid-template-columns: 1fr 1fr;
-  //   gap: 30px;
-  //   margin-bottom: 20px;
-  // }
-
-  // @media (max-width: 600px) {
-  //   .grid {
-  //     grid-template-columns: 1fr;
-  //   }
-
   return (
     <Layout title="User Login">
       <div className="shadow-sm shadow-slate-600 rounded-lg flex flex-col p-10 items-center">
@@ -81,7 +42,7 @@ export default function LoginPage() {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="rounded-xl px-2"
+                className="rounded-xl px-2 text-black"
               />
             </div>
           </div>
@@ -95,7 +56,7 @@ export default function LoginPage() {
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="rounded-xl pl-4"
+                className="rounded-xl pl-4 text-black"
               />
             </div>
           </div>

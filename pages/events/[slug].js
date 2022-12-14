@@ -11,7 +11,7 @@ export default function EventPage({ evt }) {
 
   return (
     <Layout>
-      <div className="text-center mt-20">
+      <div className="text-center mt-2">
         <div
           onClick={() => {
             router.back();
