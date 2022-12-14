@@ -8,7 +8,6 @@ import { useContext } from "react";
 import { parseCookies } from "@/helpers/index";
 
 import { API_URL } from "@/config/index";
-import styles from "@/styles/Form.module.css";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function AddEventPage({ token }) {
@@ -72,72 +71,84 @@ export default function AddEventPage({ token }) {
         theme="colored"
         closeOnClick={true}
       />
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.grid}>
+      <form onSubmit={handleSubmit}>
+        <div className="grid md:grid-cols-2 gap-8 mb-5">
           <div>
-            <label htmlFor="name">Event Name</label>
+            <label htmlFor="name" className="block">
+              Event Name
+            </label>
             <input
               type="text"
               id="name"
               name="name"
               value={values.name}
               onChange={handleInputChange}
-              className="shadow appearance-none border border-solid text-black rounded-lg"
+              className=" w-full p-1 h-10 shadow appearance-none border border-solid text-black rounded-lg"
             />
           </div>
           <div>
-            <label htmlFor="host">Host</label>
+            <label htmlFor="host" className="block">
+              Host
+            </label>
             <input
               type="text"
               name="host"
               id="host"
               value={values.host}
               onChange={handleInputChange}
-              className="shadow appearance-none border border-solid text-black rounded-lg"
+              className=" w-full p-1 h-10 shadow appearance-none border border-solid text-black rounded-lg"
             />
           </div>
           <div>
-            <label htmlFor="venue">Venue</label>
+            <label htmlFor="venue" className="block ">
+              Venue
+            </label>
             <input
               type="text"
               name="venue"
               id="venue"
               value={values.venue}
               onChange={handleInputChange}
-              className="shadow appearance-none border border-solid text-black rounded-lg"
+              className="w-full p-1 h-10 shadow appearance-none border border-solid text-black rounded-lg"
             />
           </div>
           <div>
-            <label htmlFor="address">Address</label>
+            <label htmlFor="address" className="block">
+              Address
+            </label>
             <input
               type="text"
               name="address"
               id="address"
               value={values.address}
               onChange={handleInputChange}
-              className="shadow appearance-none border border-solid text-black rounded-lg"
+              className="w-full p-1 h-10 shadow appearance-none border border-solid text-black rounded-lg"
             />
           </div>
           <div>
-            <label htmlFor="date">Date</label>
+            <label htmlFor="date" className="block">
+              Date
+            </label>
             <input
               type="date"
               name="date"
               id="date"
               value={values.date}
               onChange={handleInputChange}
-              className="shadow appearance-none border border-solid text-black rounded-lg"
+              className="w-full p-1 h-10 shadow appearance-none border border-solid text-black rounded-lg"
             />
           </div>
           <div>
-            <label htmlFor="time">Time</label>
+            <label htmlFor="time" className="block">
+              Time
+            </label>
             <input
               type="text"
               name="time"
               id="time"
               value={values.time}
               onChange={handleInputChange}
-              className="shadow appearance-none border border-solid  text-black rounded-lg"
+              className="w-full p-1 h-10 shadow appearance-none border border-solid text-black rounded-lg"
             />
           </div>
         </div>
@@ -149,13 +160,13 @@ export default function AddEventPage({ token }) {
             id="description"
             value={values.description}
             onChange={handleInputChange}
-            className="shadow appearance-none border border-solid text-black rounded-lg"
+            className="shadow appearance-none border border-solid text-black rounded-lg w-full h-36"
           ></textarea>
         </div>
         <input
           type="submit"
-          value="Add Event"
-          className="text-white shadow-sm shadow-slate-800 text-xs bg-slate-900 hover:bg-slate-700 px-4 py-2 rounded-2xl"
+          value={"Add Event"}
+          className="block w-full my-4 text-white shadow-sm shadow-slate-700 text-xs hover:bg-slate-700 px-4 py-4 rounded-2xl"
         />
       </form>
     </Layout>
