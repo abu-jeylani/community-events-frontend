@@ -1,18 +1,15 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
-import Link from "next/link";
 import Image from "next/image";
 import Layout from "@/components/Layout";
 import Modal from "@/components/Modal";
 import ImageUpload from "@/components/ImageUpload";
-import moment from "moment";
 import { FaImage } from "react-icons/fa";
 import { parseCookies } from "@/helpers/index";
 import Button from "@/components/Button";
 
 import { API_URL } from "@/config/index";
-import styles from "@/styles/Form.module.css";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function EditEventPage({ evt, token }) {
@@ -96,105 +93,119 @@ export default function EditEventPage({ evt, token }) {
         theme="colored"
         closeOnClick={true}
       />
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.grid}>
+      <form onSubmit={handleSubmit}>
+        <div className="grid md:grid-cols-2 gap-8 mb-5">
           <div>
-            <label htmlFor="name">Event Name</label>
+            <label htmlFor="name" className="block">
+              Event Name
+            </label>
             <input
               type="text"
               id="name"
               name="name"
               value={values.name}
               onChange={handleInputChange}
-              className="shadow text-black appearance-none border border-solid  rounded-lg"
+              className=" w-full p-1 h-10 shadow appearance-none border border-solid text-black rounded-lg"
             />
           </div>
           <div>
-            <label htmlFor="host">Host</label>
+            <label htmlFor="host" className="block">
+              Host
+            </label>
             <input
               type="text"
               name="host"
               id="host"
               value={values.host}
               onChange={handleInputChange}
-              className="shadow text-black appearance-none border border-solid  rounded-lg"
+              className=" w-full p-1 h-10 shadow appearance-none border border-solid text-black rounded-lg"
             />
           </div>
           <div>
-            <label htmlFor="venue">Venue</label>
+            <label htmlFor="venue" className="block ">
+              Venue
+            </label>
             <input
               type="text"
               name="venue"
               id="venue"
               value={values.venue}
               onChange={handleInputChange}
-              className="shadow text-black  appearance-none border border-solid  rounded-lg"
+              className="w-full p-1 h-10 shadow appearance-none border border-solid text-black rounded-lg"
             />
           </div>
           <div>
-            <label htmlFor="address">Address</label>
+            <label htmlFor="address" className="block">
+              Address
+            </label>
             <input
               type="text"
               name="address"
               id="address"
               value={values.address}
               onChange={handleInputChange}
-              className="shadow text-black  appearance-none border border-solid  rounded-lg"
+              className="w-full p-1 h-10 shadow appearance-none border border-solid text-black rounded-lg"
             />
           </div>
           <div>
-            <label htmlFor="date">Date</label>
+            <label htmlFor="date" className="block">
+              Date
+            </label>
             <input
               type="date"
               name="date"
               id="date"
-              value={moment(values.date).format("yyyy-MM-DD")}
+              value={values.date}
               onChange={handleInputChange}
-              className="shadow text-black appearance-none border border-solid  rounded-lg"
+              className="w-full p-1 h-10 shadow appearance-none border border-solid text-black rounded-lg"
             />
           </div>
           <div>
-            <label htmlFor="time">Time</label>
+            <label htmlFor="time" className="block">
+              Time
+            </label>
             <input
               type="text"
               name="time"
               id="time"
               value={values.time}
               onChange={handleInputChange}
-              className="shadow text-black  appearance-none border border-solid  rounded-lg"
+              className="w-full p-1 h-10 shadow appearance-none border border-solid text-black rounded-lg"
             />
           </div>
         </div>
         <div>
-          <label htmlFor="description ">Event Description</label>
+          <label htmlFor="description">Event Description</label>
           <textarea
             type="text"
             name="description"
             id="description"
             value={values.description}
             onChange={handleInputChange}
-            className="shadow text-black  appearance-none border border-solid  rounded-lg"
+            className="shadow appearance-none border border-solid text-black rounded-lg w-full h-36"
           ></textarea>
         </div>
         <input
           type="submit"
-          value="Update Event"
-          className="bg-slate-800 rounded-xl"
+          value={"Update Event"}
+          className="block w-full text-white shadow-sm shadow-slate-700 text-xs hover:bg-slate-700 px-4 py-4 rounded-2xl"
         />
       </form>
-      <h2>Event Image</h2>
-      {imagePreview ? (
-        <Image src={imagePreview} alt="picture" height={100} width={170} />
-      ) : (
-        <div>
-          <p>No image uploaded</p>
-        </div>
-      )}
+      <div className="mt-1">
+        {" "}
+        {imagePreview ? (
+          <Image src={imagePreview} alt="picture" height={100} width={170} />
+        ) : (
+          <div>
+            <p>No image uploaded</p>
+          </div>
+        )}
+      </div>
 
-      <div>
+      <div className="mt-2 mb-2">
         <button
           onClick={() => setShowModal(true)}
-          className="bg-slate-800 rounded-xl px-3"
+          className="bg-slate-900 mt-2 rounded-xl px-3 hover:bg-slate-700 shadow-sm shadow-gray-400"
         >
           <FaImage className="mt-2 mx-12" /> Set Image
         </button>

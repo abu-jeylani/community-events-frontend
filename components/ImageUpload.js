@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { API_URL } from "@/config/index";
-import styles from "@/styles/Form.module.css";
 
 export default function ImageUpload({ evtId, imageUploaded, token }) {
   const [image, setImage] = useState(null);
@@ -29,18 +28,17 @@ export default function ImageUpload({ evtId, imageUploaded, token }) {
   const handleFileChange = (e) => {
     setImage(e.target.files[0]);
   };
-
   return (
-    <div className={styles.form}>
-      <h1>Upload Event Image</h1>
+    <div>
+      <h1 className="text-2xl text-slate-800">Upload Event Image</h1>
       <form onSubmit={handleSubmit}>
-        <div className={styles.file}>
+        <div className="border border-solid border-gray-700 bg-slate-900 text-white">
           <input type="file" onChange={handleFileChange} />
         </div>
         <input
           type="submit"
           value="Upload"
-          className="text-white shadow-sm shadow-slate-800 text-xs bg-slate-900 hover:bg-slate-700 px-4 py-2 rounded-2xl"
+          className="mt-4 text-white shadow-sm shadow-slate-800 text-xs bg-slate-900 hover:bg-slate-700 px-4 py-3 rounded-2xl"
         />
       </form>
     </div>

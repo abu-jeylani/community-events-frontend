@@ -33,9 +33,7 @@ export default function ImageUploadPage({ evt, token }) {
         <button
           onClick={() => setShowModal(true)}
           className="btn-secondary btn-icon"
-        >
-          <FaImage /> Set Image
-        </button>
+        ></button>
       </div>
 
       <Modal show={showModal} onClose={() => setShowModal(false)}>
